@@ -9,9 +9,11 @@ import baseConfig from './webpack.config.base';
 import { dependencies } from './package.json';
 import CheckNodeEnv from './internals/scripts/CheckNodeEnv';
 
+console.log('찍혀라[webpack.config.render.dev.dll]', 'call CheckNodeEnv');
 CheckNodeEnv('development');
 
 const dist = path.resolve(process.cwd(), 'dll');
+console.log('찍혀라[webpack.config.render.dev.dll]', dist);
 
 export default merge.smart(baseConfig, {
   context: process.cwd(),

@@ -5,6 +5,7 @@ import { execSync } from 'child_process';
 import { dependencies } from '../../package.json';
 
 (() => {
+  console.log('찍혀라[CheckNativeDep]', './package.json 파일의 dependecies 부분', dependencies)
   if (!dependencies) return;
 
   const dependenciesKeys = Object.keys(dependencies);
@@ -16,10 +17,12 @@ import { dependencies } from '../../package.json';
   // because of a devDependency then that is okay. Warn when it is installed
   // because of a dependency
   const dependenciesObject = JSON.parse(execSync(`npm ls ${nativeDeps.join(' ')} --json`).toString());
+  console.log('찍혀라[CheckNativeDep]', dependenciesObject);
   const rootDependencies = Object.keys(dependenciesObject.dependencies);
   const filteredRootDependencies = rootDependencies
     .filter(rootDependency => dependenciesKeys.includes(rootDependency));
 
+  console.log('찍혀라[CheckNativeDep]', filteredRootDependencies.length);
   if (filteredRootDependencies.length > 0) {
     const plural = filteredRootDependencies.length > 1;
     console.log(`

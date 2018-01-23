@@ -12,7 +12,8 @@ export default class MenuBuilder {
     if (process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true') {
       this.setupDevelopmentEnvironment();
     }
-
+/*
+//$$$$$ mainWindow 를 fullscreen 으로 변경했음. [main.dev.js]
     let template;
 
     if (process.platform === 'darwin') {
@@ -25,10 +26,13 @@ export default class MenuBuilder {
     Menu.setApplicationMenu(menu);
 
     return menu;
+*/    
   }
 
   setupDevelopmentEnvironment() {
     this.mainWindow.openDevTools();
+/*    
+//$$$$$ mainWindow 를 fullscreen 으로 변경했음. [main.dev.js]
     this.mainWindow.webContents.on('context-menu', (e, props) => {
       const { x, y } = props;
 
@@ -41,8 +45,11 @@ export default class MenuBuilder {
         }])
         .popup(this.mainWindow);
     });
+*/    
   }
 
+/*
+//$$$$$ mainWindow 를 fullscreen 으로 변경했음. [main.dev.js]
   buildDarwinTemplate() {
     const subMenuAbout = {
       label: 'Electron',
@@ -183,4 +190,5 @@ export default class MenuBuilder {
 
     return templateDefault;
   }
+*/
 }

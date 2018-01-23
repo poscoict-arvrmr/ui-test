@@ -17,8 +17,11 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import baseConfig from './webpack.config.base';
 import CheckNodeEnv from './internals/scripts/CheckNodeEnv';
 
+console.log('찍혀라[webpack.config.render.dev]', 'call CheckNodeEnv');
+
 CheckNodeEnv('development');
 
+console.log('찍혀라[webpack.config.render.dev]', 'DLL 빌드여부 확인');
 const port = process.env.PORT || 1212;
 const publicPath = `http://localhost:${port}/dist`;
 const dll = path.resolve(process.cwd(), 'dll');
@@ -31,6 +34,7 @@ if (!(fs.existsSync(dll) && fs.existsSync(manifest))) {
   console.log(chalk.black.bgYellow.bold('The DLL files are missing. Sit back while we build them for you with "npm run build-dll"'));
   execSync('npm run build-dll');
 }
+console.log('찍혀라[webpack.config.render.dev]', dll, manifest);
 
 export default merge.smart(baseConfig, {
   devtool: 'inline-source-map',
@@ -260,8 +264,10 @@ export default merge.smart(baseConfig, {
       disableDotRule: false,
     },
     before() {
+      console.log('찍혀라[webpack.config.render.dev]', 'START_HOT 환경변수:', process.env.START_HOT);
       if (process.env.START_HOT) {
         console.log('Starting Main Process...');
+        console.log('찍혀라[webpack.config.render.dev]', 'child_process를 생성함.')
         spawn(
           'npm',
           ['run', 'start-main-dev'],

@@ -141,7 +141,7 @@
     "css-loader": "^0.28.8",
     "detect-port": "^1.2.2",
     "electron": "^1.7.10",
-    "electron-builder": "^19.52.1",
+    "electron-builder": "^19.55.0",
     "electron-devtools-installer": "^2.2.3",
     "electron-rebuild": "^1.6.0",
     "enzyme": "^3.3.0",
@@ -191,9 +191,11 @@
   "dependencies": {
     "devtron": "^1.4.0",
     "electron-debug": "^1.5.0",
+    "firebase": "^4.9.0",
     "font-awesome": "^4.7.0",
     "history": "^4.7.2",
     "react": "^16.2.0",
+    "react-desktop": "^0.3.3",
     "react-dom": "^16.2.0",
     "react-hot-loader": "^4.0.0-beta.13",
     "react-redux": "^5.0.6",
@@ -202,6 +204,7 @@
     "react-router-redux": "^5.0.0-alpha.6",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
+    "semantic-ui-react": "^0.77.2",
     "source-map-support": "^0.5.0"
   },
   "devEngines": {

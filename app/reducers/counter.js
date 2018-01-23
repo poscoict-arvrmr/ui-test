@@ -12,8 +12,10 @@ type actionType = {
 export default function counter(state: number = 0, action: actionType) {
   switch (action.type) {
     case INCREMENT_COUNTER:
+      console.log('[counter.js]','reducer','counter', state, action);
       return state + 1;
     case DECREMENT_COUNTER:
+      console.log('[counter.js]','reducer','counter', state, action);
       return state - 1;
     default:
       return state;
